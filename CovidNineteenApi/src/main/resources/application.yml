@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+    application:
+      name: CovidNineteenApi
+eureka:
+  client:
+    service-url: # EurekaServer??
+      defaultZone: http://127.0.0.1:5600/eureka
