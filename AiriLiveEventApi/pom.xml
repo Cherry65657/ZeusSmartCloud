@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>ZeusSmartCloud</artifactId>
         <groupId>org.zsc</groupId>
-        <version>1.1-SNAPSHOT</version>
+        <version>1.1-SNAPSHOT</version> <!-- lookup parent from repository -->
     </parent>
-    <modelVersion>4.0.0</modelVersion>
     <groupId>org.zss</groupId>
-    <artifactId>CovidNineteenApi</artifactId>
+    <artifactId>AiriLiveEventApi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>CovidNineteenApi</name>
-    <description>CovidNineteenApi</description>
+    <name>AiriLiveEventApi</name>
+    <description>AiriLiveEventApi</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>2.4.1</version>
-            <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -34,7 +34,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
-
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -53,7 +52,6 @@
             </exclusions>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

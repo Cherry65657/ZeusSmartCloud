@@ -1,8 +1,8 @@
 server:
-  port: 5698
+  port: 5699
 spring:
-    application:
-      name: CovidNineteenApi
+  application:
+    name: AiriLiveEventApi
 eureka:
   client:
     service-url: # EurekaServer??
