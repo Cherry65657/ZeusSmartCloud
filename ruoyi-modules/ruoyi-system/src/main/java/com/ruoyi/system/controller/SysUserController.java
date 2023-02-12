@@ -218,7 +218,6 @@ public class SysUserController extends BaseController
         user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
         return toAjax(userService.insertUser(user));
     }
-
     /**
      * 修改用户
      */

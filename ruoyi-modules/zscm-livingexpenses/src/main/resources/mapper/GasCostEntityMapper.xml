@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zscm.livingexpenses.mapper.GasCostEntityMapper">
+    
+    <resultMap type="org.zscm.livingexpenses.domain.GasCostEntity" id="GasCostEntityResult">
+        <result property="id"    column="id"    />
+        <result property="address"    column="address"    />
+        <result property="value"    column="value"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectGasCostEntityVo">
+        select id, address, value, create_time from gas_cost
+    </sql>
+
+    <select id="selectGasCostEntityList" parameterType="org.zscm.livingexpenses.domain.GasCostEntity" resultMap="GasCostEntityResult">
+        <include refid="selectGasCostEntityVo"/>
+        <where>  
+            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="value != null  and value != ''"> and value = #{value}</if>
+        </where>
+    </select>
+    
+    <select id="selectGasCostEntityById" parameterType="Long" resultMap="GasCostEntityResult">
+        <include refid="selectGasCostEntityVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGasCostEntity" parameterType="org.zscm.livingexpenses.domain.GasCostEntity" useGeneratedKeys="true" keyProperty="id">
+        insert into gas_cost
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="address != null">address,</if>
+            <if test="value != null">value,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="address != null">#{address},</if>
+            <if test="value != null">#{value},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGasCostEntity" parameterType="org.zscm.livingexpenses.domain.GasCostEntity">
+        update gas_cost
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="address != null">address = #{address},</if>
+            <if test="value != null">value = #{value},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGasCostEntityById" parameterType="Long">
+        delete from gas_cost where id = #{id}
+    </delete>
+
+    <delete id="deleteGasCostEntityByIds" parameterType="String">
+        delete from gas_cost where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
